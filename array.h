@@ -17,6 +17,8 @@ public:
 
 	Array(int* mas_p, int size_p);//главный конструктор
 
+	Array(const Array& mas_p);
+
 	Array(Array&& mas_p);//конструктор перемещения
 
 	//аксессоры и модификаторы

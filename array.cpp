@@ -2,7 +2,18 @@
 
 Array::Array(int* mas_p, int size_p) : mas{ new int[size_p] }, size{ size_p }//главный конструктор
 {
-	mas = mas_p;
+	for (int i = 0; i < SIZE; i++)
+	{
+		mas[i] = mas_p[i];
+	}
+}
+
+Array::Array(const Array& mas_p) : mas{ new int[mas_p.size] }, size{ mas_p.size } //конструктор перемещения
+{
+	for (int i = 0; i < SIZE; i++)
+	{
+		mas[i] = mas_p.get_mas()[i];
+	}
 }
 
 Array::Array(Array&& mas_p) : mas{ new int[mas_p.size] }, size{mas_p.size} //конструктор перемещения
@@ -13,8 +24,6 @@ Array::Array(Array&& mas_p) : mas{ new int[mas_p.size] }, size{mas_p.size} //кон
 
 void Array::random()
 {
-	delete[] mas;
-
 	mas = new int[SIZE];
 
 	for (int i = 0; i < SIZE; i++)
