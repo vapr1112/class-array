@@ -15,6 +15,8 @@ public:
 
 	Array() = default;
 
+	explicit Array(int* mas_p) : Array(mas_p, size) {}
+
 	Array(int* mas_p, int size_p);//главный конструктор
 
 	Array(const Array& mas_p);
